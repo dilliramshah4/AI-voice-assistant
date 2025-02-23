@@ -128,7 +128,10 @@ AI Virtual Agent/
     kubectl logs <pod-name>
     ```
 
-## Changelog
 
-### [Unreleased]
-- Added Changelog section to track modifications.
+
+## Video Guide
+
+For a detailed video guide on setting up and using the AI Voice Assistant, please refer to the following link:
+[Video Guide](https://drive.google.com/file/d/10EUdnF_Al9NTy7TLPGCmVs4Te5VIwhwz/view?usp=sharing)
+
