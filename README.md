@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# AI-voice-assistant
-Build a Simple AI Voice Assistant (Backend Requirements)
-=======
 # AI Voice Assistant
 
 ## Overview
@@ -43,31 +39,35 @@ AI Virtual Agent/
 
 ## Setup
 
-1. Clone the Repository
-    ```bash
-    git clone https://github.com/yourusername/ai-voice-assistant.git
-    cd ai-voice-assistant
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/AI-voice-assistant.git
+    cd AI-voice-assistant
     ```
 
-2. Install Dependencies
-    ```bash
+2. Create a virtual environment and activate it:
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. Install the dependencies:
+    ```sh
     pip install -r requirements.txt
     ```
 
-3. Run Locally
-    ```bash
-    uvicorn app.main:app --host 0.0.0.0 --port 8000
+4. Create a `.env` file in the root directory and add your API keys:
+    ```env
+    API_KEY=your_api_key_here
     ```
 
-4. Test API
-    Open in a browser:
+5. Run the application:
+    ```sh
+    docker build -t ai-voice-assistant .
+    docker run -p 8000:8000 ai-voice-assistant
     ```
-    http://127.0.0.1:8000/docs
-    ```
-    Or use CURL:
-    ```bash
-    curl -X POST "http://127.0.0.1:8000/process-text/" -H "Content-Type: application/json" -d '{"text": "Hello"}'
-    ```
+
+6. Access the application at `http://localhost:8000`.
 
 ## Docker Deployment
 
@@ -77,6 +77,12 @@ AI Virtual Agent/
     docker run -d -p 8000:8000 --name ai-agent ai-virtual-agent
     ```
 
+2. Push Docker Image to Docker Hub
+    ```bash
+    docker tag ai-virtual-agent yourdockerhubusername/ai-virtual-agent:latest
+    docker push yourdockerhubusername/ai-virtual-agent:latest
+    ```
+
 ## Kubernetes Deployment with Minikube
 
 1. Start Minikube
@@ -84,17 +90,27 @@ AI Virtual Agent/
     minikube start
     ```
 
-2. Deploy to Kubernetes
-    ```bash
-    kubectl apply -f kubernetes/deploy.yaml
+2. Deploy to Kubernetes from Docker Hub
+    Update the `image` field in `kubernetes/deployment.yaml` to `yourdockerhubusername/ai-virtual-agent:latest`:
+    ```yaml
+    # kubernetes/deployment.yaml
+    spec:
+      containers:
+      - name: ai-virtual-agent
+        image: yourdockerhubusername/ai-virtual-agent:latest
     ```
 
-3. Get Minikube IP
+3. Apply the Kubernetes configuration
+    ```bash
+    kubectl apply -f kubernetes/deployment.yaml
+    ```
+
+4. Get Minikube IP
     ```bash
     minikube ip
     ```
 
-4. Access API
+5. Access API
     Replace `<MINIKUBE_IP>` with the actual Minikube IP:
     ```bash
     curl -X POST "http://<MINIKUBE_IP>:30007/process-text/" -H "Content-Type: application/json" -d '{"text": "Hello"}'
@@ -111,4 +127,8 @@ AI Virtual Agent/
     ```bash
     kubectl logs <pod-name>
     ```
->>>>>>> 6ba8f26 (Initial commit: Added AI Voice Assistant with Kubernetes deployment)
+
+## Changelog
+
+### [Unreleased]
+- Added Changelog section to track modifications.
