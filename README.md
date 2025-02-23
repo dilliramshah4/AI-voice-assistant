@@ -41,7 +41,7 @@ AI Virtual Agent/
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/AI-voice-assistant.git
+    git clone https://github.com/dilliramshah4/AI-voice-assistant.git
     cd AI-voice-assistant
     ```
 
